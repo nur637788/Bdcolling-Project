@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, increase, decrease } from "../../Redux/CartSlice"; 
+import { removeFromCart, increase, decrease } from "../../Redux/CartSlice";
 import { setSelectedProduct } from "../../Redux/CartSlice";
 
 import { Link } from "react-router-dom";
@@ -24,7 +24,7 @@ export default function Cart() {
                                 <img src={item.thumbnail} className="w-20 h-20 rounded" />
                                 <div>
                                     <h2 className="font-semibold">{item.title}</h2>
-                                    <p>${item.total.toFixed(2)}</p>
+                                    <p>${item?.total ? item.total.toFixed(2) : '0.00'}</p>
                                 </div>
                             </div>
 

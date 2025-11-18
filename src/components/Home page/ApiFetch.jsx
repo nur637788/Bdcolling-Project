@@ -59,7 +59,7 @@ export default function ApiFetch() {
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 h-fit gap-4">
                 {filteredData.slice(0, 20).map((item) => (
                     <Link to={`/details/${item.id}`}>
                         <div
@@ -87,7 +87,7 @@ export default function ApiFetch() {
                                     e.preventDefault();
                                     handleLove(item.id);
                                 }}
-                                    className=" bg-gray-200 px-1 py-1 border border-red-300 rounded-full text-xl cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-blue-300 transition-all duration-300">
+                                    className=" bg-gray-200  border border-red-300 rounded-full text-xl cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-blue-300 transition-all duration-300">
                                     {love[item.id]?.liked ? "❤️" : "🩶 "}
                                 </button>
 

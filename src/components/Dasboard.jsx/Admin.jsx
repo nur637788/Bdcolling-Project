@@ -72,8 +72,7 @@ export default function Admin() {
             {/* LogOut Button */}
             <button
                 className="my-10 block mx-auto bg-pink-700 text-white px-6 py-2 rounded hover:bg-pink-800"
-                onClick={handleLogout}
-            >
+                onClick={handleLogout}>
                 Logout
             </button>
         </div>

@@ -43,13 +43,18 @@ function Header() {
                 </div>
 
                 {/* Desktop Button */}
-                <Link to="/cart" className="relative hidden md:block">
-                    <span className="text-2xl">🛒</span>
+                <div className="flex gap-5">
+                    <Link to="/cart" className="relative hidden md:block">
+                        <span className="text-2xl">🛒</span>
 
-                    <span className="absolute -top-1 -right-2 bg-red-600 text-white text-[10px] px-1 rounded-full">
-                        {totalQuantity}
-                    </span>
-                </Link>
+                        <span className="absolute -top-1 -right-2 bg-red-600 text-white text-[10px] px-1 rounded-full">
+                            {totalQuantity}
+                        </span>
+                    </Link>
+                    <Link to="" className="relative hidden md:block">
+                        <img className=" w-7 h-7 rounded-full border" src="https://www.shutterstock.com/image-vector/illustration-smiling-young-man-brown-600nw-2575185307.jpg" alt="" />
+                    </Link>
+                </div>
 
                 {/* Mobile Hamburger */}
                 <button
@@ -82,12 +87,17 @@ function Header() {
                         </NavLink>
                     ))}
 
-                    <Link to="/cart" className="relative">
-                        <span className="text-2xl">🛒</span>
-                        <span className="absolute -top-2 -right-3 bg-red-600 text-white text-sm px-2 rounded-full">
-                            {totalQuantity}
-                        </span>
-                    </Link>
+                    <div className="flex gap-4">
+                        <Link to="" className="relative">
+                            <span className="text-2xl">🛒</span>
+                            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-sm px-2 rounded-full">
+                                {totalQuantity}
+                            </span>
+                        </Link>
+                        <Link to="" className="relative">
+                            <img className=" w-10 h-10 rounded-full border" src="https://www.shutterstock.com/image-vector/illustration-smiling-young-man-brown-600nw-2575185307.jpg" alt="" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

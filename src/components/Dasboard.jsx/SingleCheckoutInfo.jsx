@@ -28,51 +28,34 @@ export default function Admin() {
                 <p>No orders found.</p>
             ) : (
                 orders.map(order => (
-                    <div key={order.id} className="border p-4 rounded mb-4">
+                    <div key={order.id} className="border p-4 rounded mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                        <h2 className="font-bold">Order #{order.id}</h2>
-                        <p>Name: {order.name}</p>
-                        <p>Phone: {order.phone}</p>
-                        <p>Address: {order.address}</p>
-                        <p>Date: {order.date}</p>
+                        <div>
+                            <h3 className="font-bold">User Info:</h3>
+                            <h2><b>OrderID:</b> #{order.id}</h2>
+                            <p><b>Name:</b> {order.name}</p>
+                            <p><b>Phone:</b> {order.phone}</p>
+                            <p><b>Address:</b> {order.address}</p>
+                            <p><b>Date:</b> {order.date}</p>
+                        </div>
 
-                        <h3 className="font-semibold mt-2">Products:</h3>
-
-                        {/* CASE 1: Multiple product */}
-                        {order.items && (
-                            <ul className="list-disc ml-6">
-                                {order.items.map(p => (
-                                    <li key={p.id}>
-                                        {p.title} (x{p.quantity}) - ${p.total.toFixed(2)}
+                        <div>
+                            <h3 className="font-bold">Products Info:</h3>
+                            {order.selectedProduct && (
+                                <ul className="list-disc ml-6">
+                                    <li>
+                                        {order.selectedProduct.title} (x{order.selectedProduct.quantity})
+                                        - ${order.selectedProduct.total.toFixed(2)}
                                     </li>
-                                ))}
-                            </ul>
-                        )}
-
-                        {/* CASE 2: Single product */}
-                        {order.selectedProduct && (
-                            <ul className="list-disc ml-6">
-                                <li>
-                                    {order.selectedProduct.title} (x{order.selectedProduct.quantity})
-                                    - ${order.selectedProduct.total.toFixed(2)}
-                                </li>
-                            </ul>
-                        )}
-
-                        {/* TOTAL PRICE */}
-                        <p className="font-bold mt-2">
-                            Total: $
-                            {order.totalPrice
-                                ? order.totalPrice.toFixed(2)
-                                : order.selectedProduct?.total.toFixed(2)}
-                        </p>
-
-                        <button
-                            onClick={() => deleteOrder(order.id)}
-                            className="mt-3 bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"
-                        >
-                            Delete Order
-                        </button>
+                                </ul>
+                            )}
+                            <button
+                                onClick={() => deleteOrder(order.id)}
+                                className="mt-3 bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded"
+                            >
+                                Delete Order
+                            </button>
+                        </div>
                     </div>
                 ))
             )}
