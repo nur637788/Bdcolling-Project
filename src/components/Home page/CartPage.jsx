@@ -10,16 +10,16 @@ export default function Cart() {
     const dispatch = useDispatch();
 
     return (
-        <div className="p-6">
+        <div className="py-5 px-4">
             <h1 className="text-2xl font-bold mb-4">Your Cart 🛒</h1>
 
             {items.length === 0 ? (
                 <p className="text-lg">Cart is Empty 📪</p>
             ) : (
-                <div className="space-y-4">
+                <div className="space-y-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 
                     {items.map(item => (
-                        <div key={item.id} className="flex flex-wrap gap-4 items-center justify-between p-4 border rounded">
+                        <div key={item.id} className="flex flex-col gap-4  justify-between p-4 border rounded relative shadow-blue-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                             <div className="flex items-center gap-4">
                                 <img src={item.thumbnail} className="w-20 h-20 rounded" />
                                 <div>
@@ -27,8 +27,15 @@ export default function Cart() {
                                     <p>${item?.total ? item.total.toFixed(2) : '0.00'}</p>
                                 </div>
                             </div>
+                            <div>
+                                <button
+                                    onClick={() => dispatch(removeFromCart(item.id))}
+                                    className="absolute top-2 right-2 text-xl hover:scale-105 duration-300 cursor-pointer">
+                                    ❌
+                                </button>
+                            </div>
 
-                            <div className="flex gap-5">
+                            <div className="flex justify-between gap-5">
                                 {/* quantity Plus Minus buttons */}
                                 <div className="flex items-center gap-3">
                                     <button
@@ -52,20 +59,12 @@ export default function Cart() {
                                         <button
                                             onClick={() => dispatch(setSelectedProduct(item))}
                                             className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer">
-                                            Checkout
+                                             Checkout🛍️ 
                                         </button>
                                     </Link>
                                 </div>
                                 {/* Product Remove button */}
-                                <div>
-                                    <button
-                                        onClick={() => dispatch(removeFromCart(item.id))}
-                                        className="px-4 py-1 bg-red-600 hover:bg-red-700 text-white rounded cursor-pointer">
-                                        Remove
-                                    </button>
-                                </div>
                             </div>
-
                         </div>
                     ))}
 
@@ -75,7 +74,7 @@ export default function Cart() {
                         <h2 className="text-xl font-bold">Total Price: ${totalPrice.toFixed(2)}</h2>
                         <Link to="/totalcheckout">
                             <button className="mt-2 bg-green-600 hover:bg-green-700 hover:scale-95 duration-300 text-white px-5 py-2 rounded cursor-pointer">
-                                Checkout All
+                                Checkout All 🛍️
                             </button>
                         </Link>
                     </div>

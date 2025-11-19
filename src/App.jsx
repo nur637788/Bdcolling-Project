@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
         <div className="min-h-screen flex items-center justify-center">
           <Outlet></Outlet>
         </div>
+        <Footer></Footer>
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ export default function FavoritePage() {
     const dispatch = useDispatch();
 
     return (
-        <div className="text-black py-5">
+        <div className="text-black p-5">
             <h1 className="text-xl md:text-3xl font-bold mb-4">Your Favorite Products</h1>
 
             <p className="mb-4 md:text-xl">
@@ -22,22 +22,19 @@ export default function FavoritePage() {
 
                     {items.map((item) => (
                         <Link key={item.id} to={`/details/${item.id}`}>
-                            <div className="bg-gray-300 p-4 rounded shadow relative cursor-pointer">
+                            <div className="bg-gray-300 p-4 rounded relative cursor-pointer shadow-blue-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
 
                                 <img
                                     src={item.thumbnail}
-                                    className="w-40 h-40 object-cover rounded m-auto"
-                                />
-
+                                    className="w-40 h-40 object-cover rounded m-auto" />
                                 {/* Unlove Button */}
-                                <button
-                                    onClick={(e) => {
-                                        e.preventDefault();   // stop redirect
-                                        e.stopPropagation();  // stop click bubble
-                                        dispatch(toggleFavorite(item));
-                                    }}
-                                    className="absolute top-2 right-2 text-2xl">
-                                    ❤️
+                                <button onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    dispatch(toggleFavorite(item));
+                                }}
+                                    className="absolute top-2 right-2 text-xl hover:scale-105 duration-300 cursor-pointer">
+                                    ❌
                                 </button>
 
                                 <h2 className="font-bold text-lg mt-2">{item.title.slice(0, 22)}</h2>

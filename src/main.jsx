@@ -20,6 +20,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import SingleCheckout from './components/Home page/SingleCheckout.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Admin from './components/Dasboard/Admin.jsx';
+import EditProfile from './components/Profile/EditProfile.jsx';
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
+      },
+      {
+        path: "/editprofile",
+        element: <EditProfile />,
       },
 
 

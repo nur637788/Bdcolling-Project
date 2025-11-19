@@ -60,9 +60,8 @@ export default function Details() {
                 {!cartItem && (
                     <button
                         onClick={() => dispatch(addToCart(product))}
-                        className="bg-gray-200 border border-blue-300 text-black px-2 py-1 rounded-full cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-red-300 transition-all duration-300 mb-3"
-                    >
-                        🛒 Add to Cart
+                        className="bg-gray-200 border border-blue-300 text-black w-10 h-10 rounded-full cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-red-300 transition-all duration-300 mb-3 mr-3">
+                        🛒 
                     </button>
                 )}
 
@@ -71,7 +70,7 @@ export default function Details() {
                     <button
                         onClick={() => dispatch(setSelectedProduct(cartItem || product))}
                         className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer">
-                        Checkout
+                        🛍️ Checkout
                     </button>
                 </Link>
             </div>

@@ -21,9 +21,9 @@ export default function Login() {
         // if(email === regex ){
         //     setMessage("Please Valide Email..")
         // }
-        if (password.length < 5) {
-            alert("Password at last 5 Character up..");
-        }
+        // if (password.length < 5) {
+        //     alert("Password at last 5 Character up..");
+        // }
         else {
             alert("Login failed! Fill in email & password");
         }
@@ -37,8 +37,8 @@ export default function Login() {
     };
 
     return (
-        <div className="max-w-md mx-auto px-5 py-10 bg-gray-100 rounded-2xl">
-            <h1 className="text-2xl text-center font-bold mb-4">Login Form</h1>
+        <div className="max-w-md mx-auto px-5 pb-5 bg-gray-100 rounded shadow-sm">
+            <h1 className="text-2xl text-center font-bold py-4">Login Form</h1>
 
             {isLoggedIn ? (
                 <div className="text-center space-y-4">
@@ -69,7 +69,7 @@ export default function Login() {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 rounded">
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded cursor-pointer">
                         Login
                     </button>
                 </form>
