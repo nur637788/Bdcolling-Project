@@ -1,10 +1,9 @@
 import React from 'react'
-import Admin from '../components/Dasboard.jsx/Admin'
 
 function Contact() {
     return (
-        <div className='w-full'>
-            <Admin />
+        <div className='w-full -mt-20'>
+            Contact
         </div>
     )
 }

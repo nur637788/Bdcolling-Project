@@ -28,40 +28,42 @@ export default function Cart() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3">
-                                <button
-                                    onClick={() => dispatch(decrease(item.id))}
-                                    className="px-3 py-1 bg-gray-300 rounded cursor-pointer" >
-                                    -
-                                </button>
-
-                                <span className="text-lg font-semibold">{item.quantity}</span>
-
-                                <button
-                                    onClick={() => dispatch(increase(item.id))}
-                                    className="px-3 py-1 bg-gray-300 rounded cursor-pointer">
-                                    +
-                                </button>
-                            </div>
-
-                            {/* Product-wise Checkout */}
-                            <div>
-                                <Link to="/singlecheckout">
+                            <div className="flex gap-5">
+                                {/* quantity Plus Minus buttons */}
+                                <div className="flex items-center gap-3">
                                     <button
-                                        onClick={() => dispatch(setSelectedProduct(item))}
-                                        className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer"
-                                    >
-                                        Checkout
+                                        onClick={() => dispatch(decrease(item.id))}
+                                        className="px-3 py-1 bg-gray-300 rounded cursor-pointer" >
+                                        -
                                     </button>
-                                </Link>
-                            </div>
 
-                            <div>
-                                <button
-                                    onClick={() => dispatch(removeFromCart(item.id))}
-                                    className="px-4 py-1 bg-red-600 hover:bg-red-700 text-white rounded cursor-pointer">
-                                    Remove
-                                </button>
+                                    <span className="text-lg font-semibold">{item.quantity}</span>
+
+                                    <button
+                                        onClick={() => dispatch(increase(item.id))}
+                                        className="px-3 py-1 bg-gray-300 rounded cursor-pointer">
+                                        +
+                                    </button>
+                                </div>
+
+                                {/* Product Checkout button */}
+                                <div>
+                                    <Link to="/singlecheckout">
+                                        <button
+                                            onClick={() => dispatch(setSelectedProduct(item))}
+                                            className="px-4 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer">
+                                            Checkout
+                                        </button>
+                                    </Link>
+                                </div>
+                                {/* Product Remove button */}
+                                <div>
+                                    <button
+                                        onClick={() => dispatch(removeFromCart(item.id))}
+                                        className="px-4 py-1 bg-red-600 hover:bg-red-700 text-white rounded cursor-pointer">
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
 
                         </div>

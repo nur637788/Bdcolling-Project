@@ -16,8 +16,16 @@ export default function Login() {
         if (email && password) {
             dispatch(login({ name: email }));
             setMessage(`Login successful! Welcome, ${email}`);
-        } else {
-            setMessage("Login failed! Fill in email & password");
+        }
+        // const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // if(email === regex ){
+        //     setMessage("Please Valide Email..")
+        // }
+        if (password.length < 5) {
+            alert("Password at last 5 Character up..");
+        }
+        else {
+            alert("Login failed! Fill in email & password");
         }
     };
 
@@ -29,7 +37,7 @@ export default function Login() {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6">
+        <div className="max-w-md mx-auto px-5 py-10 bg-gray-100 rounded-2xl">
             <h1 className="text-2xl text-center font-bold mb-4">Login Form</h1>
 
             {isLoggedIn ? (
@@ -50,21 +58,18 @@ export default function Login() {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+                        required />
                     <input
                         className="w-full border p-2 rounded"
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
+                        required />
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 rounded"
-                    >
+                        className="w-full bg-blue-600 text-white py-2 rounded">
                         Login
                     </button>
                 </form>

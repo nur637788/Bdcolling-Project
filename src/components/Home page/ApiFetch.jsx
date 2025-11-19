@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { addToCart } from '../../Redux/CartSlice'
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../Redux/CartSlice";
+import { toggleFavorite } from "../../Redux/favoriteSlice";
 
 export default function ApiFetch() {
     const [data, setData] = useState([]);
-    const [love, setLove] = useState({});
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
+    const { items } = useSelector((state) => state.favorites);
 
     const API = "https://dummyjson.com/carts";
 
@@ -17,89 +18,75 @@ export default function ApiFetch() {
             .then((d) => {
                 const allProducts = d.carts.flatMap((cart) => cart.products);
                 setData(allProducts);
-                console.log(allProducts)
-            });
-
-        const saved = localStorage.getItem("loveData");
-        if (saved) setLove(JSON.parse(saved));
+            })
+            .catch(() => setData([]));
     }, []);
-
-    function handleLove(id) {
-        const prev = love[id] || { liked: false, count: 0 };
-        const updatedData = {
-            ...love,
-            [id]: {
-                liked: !prev.liked,
-                count: prev.liked ? prev.count - 1 : prev.count + 1,
-            },
-        };
-        setLove(updatedData);
-        localStorage.setItem("loveData", JSON.stringify(updatedData));
+    if (!data || data.length === 0) {
+        return <p className="text-red-600 text-center p-4">Loading...</p>;
     }
 
-    // Filter data based on search and category
+    // Filter data
     const filteredData = data.filter((item) => {
-        const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
-        const matchesPrice = item.price.toString().includes(search);
-
-        return matchesSearch || matchesPrice;
+        const matchTitle = item.title.toLowerCase().includes(search.toLowerCase());
+        const matchPrice = item.price.toString().includes(search);
+        return matchTitle || matchPrice;
     });
 
     return (
         <div className="max-w-6xl mx-auto p-4">
-            {/* Search Filters */}
+            {/* Search Filter */}
             <div className="flex flex-col md:flex-row gap-4 mb-4">
-                <input
-                    type="text"
+                <input type="text"
                     placeholder="Search products..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="flex-1 p-2 rounded-lg border border-gray-600 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-pink-500"
-                />
+                    className="flex-1 p-2 rounded-lg border border-gray-600 bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-pink-500"/>
             </div>
 
             {/* Products Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 h-fit gap-4">
-                {filteredData.slice(0, 20).map((item) => (
-                    <Link to={`/details/${item.id}`}>
-                        <div
-                            key={item.id}
-                            className="bg-gray-100 text-black rounded-xl shadow p-4 flex flex-col">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
-                            <img src={item.thumbnail} alt="img"
-                                className="rounded w-40 h-40 m-auto object-cover" />
+                {filteredData.slice(0, 30).map((item) => {
 
-                            <h2 className="text-sm font-bold mb-1">{item.title.slice(0, 20)}</h2>
-                            <h2 className="text-sm font-semibold mb-1">${item.price}</h2>
-                            <div className="mt-auto flex items-center justify-between">
-                                {/* Add to Cart button */}
-                                <button onClick={(e) => {
-                                    e.stopPropagation();
-                                    e.preventDefault();
-                                    dispatch(addToCart(item))
-                                }}
-                                    className="bg-gray-200 border border-blue-300 text-white px-2 py-1 rounded-full cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-red-300 transition-all duration-300">
-                                    🛒
-                                </button>
-                                {/* Love or Unlove button */}
-                                <button onClick={(e) => {
-                                    e.stopPropagation();
-                                    e.preventDefault();
-                                    handleLove(item.id);
-                                }}
-                                    className=" bg-gray-200  border border-red-300 rounded-full text-xl cursor-pointer hover:bg-gray-100 hover:scale-95 hover:border-blue-300 transition-all duration-300">
-                                    {love[item.id]?.liked ? "❤️" : "🩶 "}
-                                </button>
+                    // ✅ now CALCULATED here — FIXED
+                    const isFav = items.some((fav) => fav.id === item.id);
 
+                    return (
+                        <Link key={item.id} to={`/details/${item.id}`}>
+                            <div className="bg-gray-100 text-black rounded-xl shadow p-4 flex flex-col relative hover:-translate-y-2 duration-200">
 
-                                {/* <span className="font-bold text-pink-400">
-                                {love[item.id]?.count || 0}
-                            </span> */}
+                                <img src={item.thumbnail} alt="img"
+                                    className="rounded w-full h-40 object-cover" />
+                                <h2 className="text-sm font-bold mt-2">{item.title.slice(0, 20)}</h2>
+                                <h2 className="text-sm font-semibold mb-1">${item.price}</h2>
+
+                                <div className="mt-auto flex items-center justify-between">
+                                    {/* Add to Cart button*/}
+                                    <button onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            dispatch(addToCart(item));
+                                        }}
+                                        className="bg-gray-200 border border-blue-300 text-white w-10 h-10 rounded-full cursor-pointer hover:bg-gray-300 hover:scale-90 duration-300">
+                                        🛒
+                                    </button>
+
+                                    {/* Favorite button*/}
+                                    <button onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            dispatch(toggleFavorite(item));
+                                        }}
+                                        className="bg-gray-200 border border-blue-300 text-white w-10 h-10 rounded-full hover:bg-gray-300 hover:scale-90 duration-300 text-2xl cursor-pointer">
+                                        {isFav ? "❤️" : "🤍"}
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                ))}
+                        </Link>
+                    );
+                })}
+
             </div>
-        </div >
+        </div>
     );
 }

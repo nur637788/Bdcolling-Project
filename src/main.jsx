@@ -10,14 +10,16 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home.jsx';
 import About from './Pages/About.jsx';
-import Projects from './Pages/Projects.jsx';
 import Contact from './Pages/Contact.jsx';
 import Login from './Pages/Login.jsx';
 import Details from './components/Home page/Details.jsx';
 import Cart from './components/Home page/CartPage.jsx';
+import FavoritePage from './components/Home page/FavoritePage.jsx';
 import Checkout from './components/Home page/TotalCheckout.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import SingleCheckout from './components/Home page/SingleCheckout.jsx';
+import Profile from './components/Profile/Profile.jsx';
+import Admin from './components/Dasboard/Admin.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,10 +40,6 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/projects",
-        element: <Projects />,
-      },
-      {
         path: "/contact",
         element: <Contact />,
       },
@@ -54,6 +52,10 @@ const router = createBrowserRouter([
         element: <Cart />,
       },
       {
+        path: "/favorite",
+        element: <FavoritePage />,
+      },
+      {
         path: "/totalcheckout",
         element:
           <ProtectedRoute><Checkout /></ProtectedRoute>,
@@ -63,6 +65,15 @@ const router = createBrowserRouter([
         element:
           <ProtectedRoute><SingleCheckout /></ProtectedRoute>,
       },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
+      },
+
 
 
     ]

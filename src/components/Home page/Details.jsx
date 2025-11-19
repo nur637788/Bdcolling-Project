@@ -1,9 +1,10 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { addToCart, setSelectedProduct, increase, decrease } from "../../Redux/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Details() {
+    const navigate = useNavigate()
     const { items = [] } = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -21,14 +22,17 @@ export default function Details() {
             });
     }, [id]);
 
-    if (!product) return <p className="text-white p-4">Loading...</p>;
+    if (!product) return <p className="text-red-600 text-center p-4">Loading...</p>;
 
     // Cart এ product আছে কি check
     const cartItem = items.find(i => i.id == product.id);
 
     return (
         <div className="w-3xl mx-auto p-6 text-white">
-            <Link to="/" className="text-pink-400 underline">← Back</Link>
+            <button onClick={() => navigate(-1)}
+                className="text-pink-400 underline">
+                ← Back
+            </button>
 
             <div className="bg-gray-900 p-5 rounded-xl mt-4 shadow">
                 <img src={product.thumbnail} className="rounded-lg m-auto object-cover mb-4" />

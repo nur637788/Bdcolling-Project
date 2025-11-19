@@ -33,28 +33,25 @@ export default function Admin() {
     // 🔒 Login না থাকলে login form দেখাও
     if (!loggedIn) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <div className="flex flex-col items-center justify-center min-h-screen -mt-20">
                 <h1 className="text-2xl font-bold mb-4">Admin Login</h1>
                 <form
                     onSubmit={handleLogin}
-                    className="flex flex-col gap-3 w-72 bg-white p-5 rounded shadow"
-                >
+                    className="flex flex-col gap-3 w-72 bg-white p-5 rounded shadow">
                     <input
                         type="text"
                         placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         className="border px-3 py-2 rounded"
-                        required
-                    />
+                        required/>
                     <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         className="border px-3 py-2 rounded"
-                        required
-                    />
+                        required/>
                     <button
                         type="submit"
                         className="bg-pink-500 text-white py-2 rounded hover:bg-pink-600">
