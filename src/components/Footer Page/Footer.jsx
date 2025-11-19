@@ -19,7 +19,7 @@ function Footer() {
 
     return (
         <div>
-            <footer className="footer grid grid-cols-2 md:grid-cols-5 gap-5 bg-base-200 text-base-content p-10">
+            <footer className="footer grid grid-cols-2 md:grid-cols-5 gap-5 bg-base-200 text-base-content p-5 md:p-10">
                 <aside>
                     {/* Logo */}
                     <Link to='/'>
@@ -64,9 +64,9 @@ function Footer() {
                 </nav>
                 <nav>
                     <h6 className="text-gray-300 font-bold text-xl">Legal</h6>
-                    <a className="link link-hover flex gap-2 items-center"><TbAirConditioning /> Terms of use</a>
-                    <a className="link link-hover flex gap-2 items-center"><MdOutlinePrivacyTip /> Privacy policy</a>
-                    <a className="link link-hover flex gap-2 items-center"><LuCookie /> Cookie policy</a>
+                    <Link to='/teams' className="link link-hover flex gap-2 items-center"><TbAirConditioning /> Teams of use</Link>
+                    <Link to='/privacypolicy' className="link link-hover flex gap-2 items-center"><MdOutlinePrivacyTip /> Privacy policy</Link>
+                    <Link to='/cookiepolicy' className="link link-hover flex gap-2 items-center"><LuCookie /> Cookie policy</Link>
                 </nav>
             </footer>
         </div>

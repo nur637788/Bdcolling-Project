@@ -1,9 +1,10 @@
 import React from 'react'
+import AboutHero from '../components/About Page/AboutHero'
 
 function About() {
     return (
-        <div>
-            About Page
+        <div className='w-full'>
+            <AboutHero />
         </div>
     )
 }

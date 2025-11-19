@@ -21,6 +21,10 @@ import SingleCheckout from './components/Home page/SingleCheckout.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Admin from './components/Dasboard/Admin.jsx';
 import EditProfile from './components/Profile/EditProfile.jsx';
+import ApiFetch from './components/Home page/ApiFetch.jsx';
+import PrivacyPolicy from './components/Footer Page/PrivacyPolicy.jsx';
+import CookiePolicy from './components/Footer Page/CookiePolicy.jsx';
+import Teams from './components/Footer Page/Teams.jsx';
 
 
 const router = createBrowserRouter([
@@ -77,6 +81,22 @@ const router = createBrowserRouter([
       {
         path: "/editprofile",
         element: <EditProfile />,
+      },
+      {
+        path: "/apifetch",
+        element: <ApiFetch />,
+      },
+      {
+        path: "/privacypolicy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/cookiepolicy",
+        element: <CookiePolicy />,
+      },
+      {
+        path: "/teams",
+        element: <Teams />,
       },
 
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Hero() {
     return (
@@ -18,7 +19,9 @@ function Hero() {
                             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                             quasi. In deleniti eaque aut repudiandae et a id nisi.
                         </p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <Link to='/apifetch'>
+                            <button className="btn btn-primary">Get Started</button>
+                        </Link>
                     </div>
                 </div>
             </div>
