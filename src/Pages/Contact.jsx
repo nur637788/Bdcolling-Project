@@ -1,4 +1,5 @@
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import { Link } from 'react-router-dom'
 
 export default function Contact() {
     return (
@@ -17,7 +18,7 @@ export default function Contact() {
             </div>
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">Contact sales</h2>
-                <p className="mt-2 text-lg/8 text-gray-400">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
+                <p className="mt-2 text-lg/8 text-gray-200">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
             </div>
             <form action="#" method="POST" className="mx-auto mt-10 max-w-xl">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -33,7 +34,7 @@ export default function Contact() {
                                 type="name"
                                 placeholder='Enter your name'
                                 autoComplete="given-name"
-                                className="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                             />
                         </div>
                     </div>
@@ -48,7 +49,7 @@ export default function Contact() {
                                 type="text"
                                 placeholder='Enter your subject'
                                 autoComplete="organization"
-                                className="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                             />
                         </div>
                     </div>
@@ -63,7 +64,7 @@ export default function Contact() {
                                 type="email"
                                 placeholder='Enter your email'
                                 autoComplete="email"
-                                className="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                             />
                         </div>
                     </div>
@@ -72,7 +73,7 @@ export default function Contact() {
                             Phone number
                         </label>
                         <div className="mt-2.5">
-                            <div className="flex rounded-md bg-white/5 outline-1 -outline-offset-1 outline-white/10 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
+                            <div className="flex rounded-md bg-white outline-1 -outline-offset-1 outline-white/10 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
                                 <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                                     <select
                                         id="country"
@@ -94,9 +95,9 @@ export default function Contact() {
                                 <input
                                     id="phone-number"
                                     name="phone-number"
-                                    type="text"
+                                    type="number"
                                     placeholder="123-456-7890"
-                                    className="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
+                                    className="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-black placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
                                 />
                             </div>
                         </div>
@@ -111,15 +112,15 @@ export default function Contact() {
                                 name="message"
                                 placeholder='Your masseage here...'
                                 rows={4}
-                                className="block w-full rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
+                                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500"
                                 defaultValue={''}
                             />
                         </div>
                     </div>
                     <div className="flex gap-x-4 sm:col-span-2">
                         <div className="flex h-6 items-center">
-                            <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-white/5 p-px inset-ring inset-ring-white/10 outline-offset-2 outline-indigo-500 transition-colors duration-200 ease-in-out has-checked:bg-indigo-500 has-focus-visible:outline-2">
-                                <span className="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5" />
+                            <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-white p-px inset-ring inset-ring-white/10 outline-offset-2 outline-indigo-500 transition-colors duration-200 ease-in-out has-checked:bg-indigo-500 has-focus-visible:outline-2">
+                                <span className="size-4 rounded-full bg-gray-400 shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5" />
                                 <input
                                     id="agree-to-policies"
                                     name="agree-to-policies"
@@ -130,19 +131,19 @@ export default function Contact() {
                                 />
                             </div>
                         </div>
-                        <label htmlFor="agree-to-policies" className="text-sm/6 text-gray-400">
+                        <label htmlFor="agree-to-policies" className="text-sm/6 text-gray-200">
                             By selecting this, you agree to our{' '}
-                            <a href="#" className="font-semibold whitespace-nowrap text-indigo-400">
+                            <Link to='/privacypolicy' className="font-semibold whitespace-nowrap text-indigo-500">
                                 privacy policy
-                            </a>
+                            </Link>
                             .
                         </label>
                     </div>
                 </div>
                 <div className="mt-10">
                     <button
-                        type="/"
-                        className="block w-full rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                        type="submit"
+                        className="block w-full rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
                         Submit
                     </button>
                 </div>

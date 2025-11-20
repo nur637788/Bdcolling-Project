@@ -1,8 +1,8 @@
 const links = [
-    { name: 'Open roles', href: '#' },
-    { name: 'Internship program', href: '#' },
-    { name: 'Our values', href: '#' },
-    { name: 'Meet our leadership', href: '#' },
+    { name: '✔ Fast Delivery', href: '#' },
+    { name: '✔ Easy Returns', href: '#' },
+    { name: '✔ Affordable Price', href: '#' },
+    { name: '✔ 100% Quality Products', href: '#' },
 ]
 const stats = [
     { name: 'Offices worldwide', value: '12' },

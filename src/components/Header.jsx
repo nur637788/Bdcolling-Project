@@ -14,9 +14,9 @@ function Header() {
     const { isLoggedIn } = useSelector(state => state.auth);
 
     const links = [
-        { name: "Home", path: "/" },
-        { name: "About", path: "/about" },
-        { name: "Contact", path: "/contact" },
+        { name: "Products", path: "/" },
+        { name: "About Us", path: "/about" },
+        { name: "Contact Us", path: "/contact" },
         { name: isLoggedIn ? "LogOut" : "Login", path: "/login" }
     ];
 
@@ -31,8 +31,8 @@ function Header() {
                 {/* Logo */}
                 <Link to='/'>
                     <h1 className="text-2xl font-semibold italic hover:animate-pulse">
-                        <span className="text-red-500 font-extrabold">MY</span>{" "}
-                        <span className="text-blue-500 font-bold">APP</span>s
+                        <span className="text-red-500 font-extrabold">E-</span>
+                        <span className="text-blue-500 font-bold">Commerc</span>e
                     </h1>
                 </Link>
 
@@ -63,7 +63,7 @@ function Header() {
 
                     {/* Profile Button */}
                     <button onClick={() => setProfileOpen(true)} className="hidden md:block text-2xl cursor-pointer hover:scale-95  duration-300">
-                        <CgProfile className="text-2xl"/>
+                        <CgProfile className="text-2xl" />
                     </button>
                 </div>
 
@@ -104,7 +104,7 @@ function Header() {
                         </Link>
 
                         <button onClick={() => { setProfileOpen(true); handleMobileLinkClick(); }} className="cursor-pointer">
-                            <CgProfile className="text-2xl"/>
+                            <CgProfile className="text-2xl" />
                         </button>
                     </div>
                 </div>

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { AiFillProduct } from 'react-icons/ai';
 import { CiShoppingCart } from 'react-icons/ci';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { FcAbout } from 'react-icons/fc';
 import { IoMdContacts } from 'react-icons/io';
 import { LuCookie } from 'react-icons/lu';
-import { MdFavorite, MdOutlinePrivacyTip } from 'react-icons/md';
+import { MdDesignServices, MdFavorite, MdOutlinePrivacyTip } from 'react-icons/md';
+import { RiAdvertisementFill } from 'react-icons/ri';
+import { SiGooglemarketingplatform } from 'react-icons/si';
 import { TbAirConditioning } from 'react-icons/tb';
 import { Link } from 'react-router-dom'
 
@@ -19,19 +22,16 @@ function Footer() {
 
     return (
         <div>
-            <footer className="footer grid grid-cols-2 md:grid-cols-5 gap-5 bg-base-200 text-base-content p-5 md:p-10">
+            <footer className="footer bg-gray-700 text-gray-100 grid grid-cols-2 md:grid-cols-5 gap-5   p-5 md:p-10">
                 <aside>
                     {/* Logo */}
                     <Link to='/'>
                         <h1 className="text-2xl font-semibold italic hover:animate-pulse">
-                            <span className="text-red-500 font-extrabold">MY</span>{" "}
-                            <span className="text-blue-500 font-bold">APP</span>s
+                            <span className="text-red-500 font-extrabold">E-</span>
+                            <span className="text-blue-500 font-bold">Commerc</span>e
                         </h1>
                     </Link>
-                    <p>
-                        ACME Industries Ltd.
-                    </p>
-
+                    <p>Nur Industries Ltd.</p>
                     <form onSubmit={handleLogin} className='flex flex-col  gap-2'>
                         <input type="email" placeholder="Email"
                             value={email}
@@ -50,10 +50,10 @@ function Footer() {
                 </nav>
                 <nav>
                     <h6 className=" text-gray-300 font-bold text-xl">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <a className="link link-hover flex gap-2 items-center"><AiFillProduct /> Products</a>
+                    <a className="link link-hover flex gap-2 items-center"><MdDesignServices />Design</a>
+                    <a className="link link-hover flex gap-2 items-center"><SiGooglemarketingplatform /> Marketing</a>
+                    <a className="link link-hover flex gap-2 items-center"><RiAdvertisementFill /> Advertisement</a>
                 </nav>
                 <nav>
                     <h6 className="text-gray-300 font-bold text-xl">Website</h6>

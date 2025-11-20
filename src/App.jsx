@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="text-black bg-white">
       <Header></Header>
-      <div className="mt-15 ">
+      <div className="mt-14 ">
         <div className="min-h-screen flex items-center justify-center">
           <Outlet></Outlet>
         </div>

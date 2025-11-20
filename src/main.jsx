@@ -25,6 +25,9 @@ import ApiFetch from './components/Home page/ApiFetch.jsx';
 import PrivacyPolicy from './components/Footer Page/PrivacyPolicy.jsx';
 import CookiePolicy from './components/Footer Page/CookiePolicy.jsx';
 import Teams from './components/Footer Page/Teams.jsx';
+import Register from './components/AccountPage/Register.jsx';
+import ForgetPass from './components/AccountPage/ForgetPass.jsx';
+import NewPassword from './components/AccountPage/NewPassword.jsx';
 
 
 const router = createBrowserRouter([
@@ -51,6 +54,17 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/forgetpass",
+        element: <ForgetPass />,
+      }, {
+        path: "/newpass",
+        element: <NewPassword />,
       },
       {
         path: "/cart",
