@@ -8,7 +8,7 @@ function Hero() {
                 <div className="hero-content flex-col lg:flex-row-reverse px-5 md:px-10 p-2">
                     <img
                         src="https://img.freepik.com/free-vector/portable-electronics-isometric-icons-illustrated-digital-gadgets-used-daily-life-field-sports-medicine-work-leisure-isolated-vector-illustration_1284-70477.jpg?semt=ais_hybrid&w=740&q=80"
-                        className="max-w-sm rounded-lg shadow-2xl" />
+                        className="h-96 rounded-lg shadow-2xl" />
 
                     <div className=''>
                         <h1 className='font-bold text-xl md:text-3xl'>Top Deals on Gadgets You Love — Shop Smart!</h1>
