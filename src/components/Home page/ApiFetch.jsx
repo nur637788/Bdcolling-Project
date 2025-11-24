@@ -15,7 +15,6 @@ export default function ApiFetch() {
     const itemsPerPage = 15;
 
     const API = "https://dummyjson.com/carts";
-
     useEffect(() => {
         fetch(API)
             .then((res) => res.json())
@@ -23,7 +22,7 @@ export default function ApiFetch() {
                 const allProducts = d.carts.flatMap((cart) => cart.products);
                 setData(allProducts);
             })
-        // .catch(() => setData([]));
+        .catch(() => setData([]));
     }, []);
     if (!data || data.length === 0) {
         return <p className="text-red-600 text-center p-4">Loading...</p>;
@@ -102,7 +101,7 @@ export default function ApiFetch() {
             </div>
 
             {/* Pagination */}
-            <div className="mt-10 flex justify-between items-center border-t border-gray-300 pt-4">
+            <div className="my-5 flex justify-between items-center border-t border-gray-300 pt-4">
 
                 {/* Previous Button */}
                 <button

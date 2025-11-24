@@ -90,11 +90,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <Admin />,
+        element: <ProtectedRoute> <Admin /> </ProtectedRoute>,
       },
       {
         path: "/editprofile",
-        element: <EditProfile />,
+        element: <ProtectedRoute> <EditProfile /> </ProtectedRoute>,
       },
       {
         path: "/apifetch",

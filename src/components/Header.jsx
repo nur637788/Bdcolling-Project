@@ -9,7 +9,6 @@ import { CgProfile } from "react-icons/cg";
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
-
     const totalQuantity = useSelector(state => state.cart.totalQuantity);
     const { isLoggedIn } = useSelector(state => state.auth);
 
@@ -17,7 +16,7 @@ function Header() {
         { name: "Products", path: "/" },
         { name: "About Us", path: "/about" },
         { name: "Contact Us", path: "/contact" },
-        { name: isLoggedIn ? "LogOut" : "Login", path: "/login" }
+        { name: isLoggedIn ? "LogOut" : "Login", path: "/login", }
     ];
 
     const handleMobileLinkClick = () => {
@@ -41,8 +40,8 @@ function Header() {
                     {links.map(link => (
                         <NavLink key={link.name} to={link.path}
                             className={({ isActive }) =>
-                                `hover:font-bold hover:scale-105 transition-all duration-300 
-                                ${isActive ? "text-blue-600 font-semibold" : ""}`}>
+                                `hover:font-semibold hover:scale-105 transition-all duration-300 
+                                ${isActive ? "text-blue-600 font-bold" : ""}`}>
                             {link.name}
                         </NavLink>
                     ))}
@@ -98,7 +97,7 @@ function Header() {
 
                         <Link to="/cart" className="relative" onClick={handleMobileLinkClick}>
                             <FaCartArrowDown className="text-2xl" />
-                            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-sm px-2 rounded-full">
+                            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-[10px] px-1 rounded-full">
                                 {totalQuantity}
                             </span>
                         </Link>
